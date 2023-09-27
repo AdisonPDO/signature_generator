@@ -1,113 +1,114 @@
-import Image from 'next/image'
+"use client";
+import React, { useState } from 'react';
+
 
 export default function Home() {
+  const [values, setValues] = useState({
+    photoUrl: '',
+    prenom: 'Prénom',
+    poste: 'Poste',
+    team: 'Team',
+    telephone: 'Telephone',
+    mail: 'Mail',
+    localisation: 'Localisation',
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setValues({
+      ...values,
+      [name]: value,
+    });
+  };
+
+
+  const htmlString = `
+
+    <div style="width:100%">
+        <table
+            style="width:100%;padding:8px;border:1px solid #ccc;border-radius:100px 30px 30px 100px;margin-bottom:20px;box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);">
+            <tr>
+
+                <td style="vertical-align:middle;width:10%">
+                    <img style="vertical-align:middle;border-radius:100%;max-height:100px;margin-right:10px"
+                        src="${values.photoUrl}" alt="profil" />
+                </td>
+
+                <td style="vertical-align:middle;padding-right:40px">
+                    <div style="font-weight:bold;font-size:1.5em">${values.prenom}</div>
+                    <div style="font-size:1.1em;padding:2px">${values.poste}</div>
+                    <div style="font-size:1.1em;padding:2px">${values.team}</div>
+                </td>
+
+                <td style="vertical-align:middle;padding-right:15px;text-align:end">
+                    <div style="font-size:1.1em;padding:2px">${values.telephone}</div>
+                    <div style="font-size:1.1em;padding:2px"><a href="${values.mail}"
+                            style="color:#0057bb">${values.mail}</a></div>
+                    <div style="font-size:1.1em;padding:2px"><a href="http://www.eloha.com"
+                            target="_blank">www.elloha.com</a></div>
+                    <div style="font-size:1.1em;padding:2px">${values.localisation}</div>
+                </td>
+
+                <td>
+                    <div style="padding:0px; height:75px; width:0px; border:0.5px solid #ccc"></div>
+                </td>
+
+                <td style="vertical-align:middle;padding-left:12px;text-align:start;width:15%">
+
+                    <img style="max-width:65px"
+                        src="https://uploads-ssl.webflow.com/615aa84d1f1d9b5ca1befa91/615aaadafcc6d7191e744c70_50004125-0-LOGO-ELLOHA-CARRE.png"
+                        alt="logo" />
+                </td>
+            </tr>
+        </table>
+        <img style="border-radius:25px;width:100%;box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);" class="footer-img"
+            src="https://team.elloha.com/avatars/footer.jpg" alt="elloha" />
+    </div>
+  `;
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+<main className="flex min-h-screen flex-col items-center justify-between p-24">
+<form className='bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4'>
+  <label className='block text-gray-700 text-sm font-bold mb-2'>
+    Photo URL:
+    <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="photoUrl" placeholder="https://..." type="url" name="photoUrl" value={values.photoUrl} onChange={handleInputChange} />
+  </label>
+  
+  <label className='block text-gray-700 text-sm font-bold mb-2'>
+    Prénom:
+    <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="prenom" type="text" name="prenom" value={values.prenom} onChange={handleInputChange} />
+  </label>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+  <label className='block text-gray-700 text-sm font-bold mb-2'>
+    Poste:
+    <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="poste" type="text" name="poste" value={values.poste} onChange={handleInputChange} />
+  </label>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+  <label className='block text-gray-700 text-sm font-bold mb-2'>
+    Équipe:
+    <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="team" type="text" name="team" value={values.team} onChange={handleInputChange} />
+  </label>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+  <label className='block text-gray-700 text-sm font-bold mb-2'>
+    Téléphone:
+    <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="telephone" type="tel" name="telephone" value={values.telephone} onChange={handleInputChange} />
+  </label>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
+  <label className='block text-gray-700 text-sm font-bold mb-2'>
+    Mail:
+    <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="mail" type="email" name="mail" value={values.mail} onChange={handleInputChange} />
+  </label>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+  <label className='block text-gray-700 text-sm font-bold mb-2'>
+    Localisation:
+    <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="localisation" type="text" name="localisation" value={values.localisation} onChange={handleInputChange} />
+  </label>
+</form>
+
+      <div
+        dangerouslySetInnerHTML={{ __html: htmlString }}
+        className="preview"
+      ></div>
     </main>
-  )
+  );
 }
