@@ -20,7 +20,15 @@ export default function Home() {
       [name]: value,
     });
   };
-
+  const handleCopyCode = () => {
+    navigator.clipboard.writeText(htmlString)
+      .then(() => {
+        alert('Code copié dans le presse-papiers!');
+      })
+      .catch(err => {
+        alert('Erreur lors de la copie dans le presse-papiers: ');
+      });
+  };
 
   const htmlString = `
 
@@ -104,7 +112,9 @@ export default function Home() {
     <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="localisation" type="text" name="localisation" value={values.localisation} onChange={handleInputChange} />
   </label>
 </form>
-
+<button onClick={handleCopyCode} className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
+  Copier le code source
+</button>
       <div
         dangerouslySetInnerHTML={{ __html: htmlString }}
         className="preview"
