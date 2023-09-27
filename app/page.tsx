@@ -38,23 +38,23 @@ export default function Home() {
             <tr>
 
                 <td style="vertical-align:middle;width:10%">
-                    <img style="vertical-align:middle;border-radius:100%;height:130px;margin-right:10px"
+                    <img style="vertical-align:middle;border-radius:100%;height:110px;margin-right:10px"
                         src="${values.photoUrl}" alt="profil" />
                 </td>
 
                 <td style="vertical-align:middle;padding-right:40px">
-                    <div style="font-weight:bold;font-size:1.5em">${values.prenom}</div>
-                    <div style="font-size:1.2em;padding:2px">${values.poste}</div>
-                    <div style="font-size:1.2em;padding:2px">${values.team}</div>
+                    <div style="font-weight:bold;font-size:15">${values.prenom}</div>
+                    <div style="font-size:12px;padding:2px">${values.poste}</div>
+                    <div style="font-size:12px;padding:2px">${values.team}</div>
                 </td>
 
                 <td style="vertical-align:middle;padding-right:15px;text-align:end">
-                    <div style="font-size:1.2em;padding:2px">${values.telephone}</div>
-                    <div style="font-size:1.2em;padding:2px"><a href="${values.mail}"
+                    <div style="font-size:12px;padding:2px">${values.telephone}</div>
+                    <div style="font-size:12px;padding:2px"><a href="${values.mail}"
                             style="color:#0057bb">${values.mail}</a></div>
-                    <div style="font-size:1.2em;padding:2px"><a href="http://www.eloha.com"
+                    <div style="font-size:12px;padding:2px"><a href="http://www.eloha.com"
                             target="_blank">www.elloha.com</a></div>
-                    <div style="font-size:1.2em;padding:2px">${values.localisation}</div>
+                    <div style="font-size:12px;padding:2px">${values.localisation}</div>
                 </td>
 
                 <td>
