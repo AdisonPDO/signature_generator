@@ -5,16 +5,16 @@ import YouTube from 'react-youtube';
 
 export default function Home() {
   const [values, setValues] = useState({
-    photoUrl: '',
-    prenom: 'Prénom',
-    poste: 'Poste',
-    team: 'Team',
-    telephone: 'Telephone',
-    mail: 'Mail',
-    website: "Website",
-    localisation: 'Localisation',
-    logo: 'https://uploads-ssl.webflow.com/615aa84d1f1d9b5ca1befa91/615aaadafcc6d7191e744c70_50004125-0-LOGO-ELLOHA-CARRE.png',
-    footer: 'https://team.elloha.com/avatars/footer.jpg'
+    photoUrl: 'https://avatars.githubusercontent.com/u/52446207?v=4',
+    prenom: 'John Doe',
+    poste: 'Développeur',
+    team: 'Techies',
+    telephone: '+33 6 00 00 00 00',
+    mail: 'john@company.com',
+    website: "https://john.fr",
+    localisation: 'Perpignan, France',
+    logo: 'https://www.vectorlogo.zone/logos/google_chrome/google_chrome-icon.svg',
+    footer: 'https://media.istockphoto.com/id/1136640606/fr/vectoriel/en-t%C3%AAte-de-banni%C3%A8re-3d-isom%C3%A9trique-d%C3%A9veloppeur-robotique.jpg?s=170667a&w=0&k=20&c=TTF6t3Dh6kYmkP5sg-ZJHrIkucG-u3ca-IHEBW6gH7I='
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -89,7 +89,7 @@ export default function Home() {
                 </td>
             </tr>
         </table>
-        <img style="border-radius:25px;width:100%;box-shadow:1px 1px 5px rgba(0, 0, 0, 0.5)" class="footer-img" src="${values.footer}" alt="elloha" />
+        <img style="border-radius:25px;width:100%;box-shadow:1px 1px 5px rgba(0, 0, 0, 0.5); max-height:180px" class="footer-img" src="${values.footer}" alt="elloha" />
     </div>
   `;
 
@@ -142,7 +142,7 @@ export default function Home() {
                 </td>
             </tr>
         </table>
-        <img style="border-radius:25px;width:100%;box-shadow:1px 1px 5px rgba(0, 0, 0, 0.5)" class="footer-img" src="${values.footer}" alt="elloha" />
+        <img style="border-radius:25px;width:100%;box-shadow:1px 1px 5px rgba(0, 0, 0, 0.5);max-height:180px" class="footer-img" src="${values.footer}" alt="elloha" />
     </div>
   `;
 
@@ -152,52 +152,64 @@ export default function Home() {
       <h3 className="text-2xl font-bold mb-1">#1 Rentrer ses informations</h3>
       <form className='bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-wrap'>
         <div className="w-1/2 px-3">
+
+          {/** Photo url */}
           <label className='block text-gray-700 text-sm font-bold mb-2'>
             Photo URL:
             <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="photoUrl" placeholder="https://..." type="url" name="photoUrl" value={values.photoUrl} onChange={handleInputChange} />
           </label>
 
+          {/** Prénom */}
           <label className='block text-gray-700 text-sm font-bold mb-2'>
             Prénom (sans accent):
             <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="prenom" type="text" name="prenom" value={values.prenom} onChange={handleInputChange} />
           </label>
 
+          {/** Logo url */}
           <label className='block text-gray-700 text-sm font-bold mb-2'>
             Url logo (https://...):
             <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="logo" type="text" name="logo" value={values.logo} onChange={handleInputChange} />
           </label>
 
+          {/** Poste */}
           <label className='block text-gray-700 text-sm font-bold mb-2'>
             Poste:
             <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="poste" type="text" name="poste" value={values.poste} onChange={handleInputChange} />
           </label>
 
+          {/** Équipe */}
           <label className='block text-gray-700 text-sm font-bold mb-2'>
             Équipe:
             <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="team" type="text" name="team" value={values.team} onChange={handleInputChange} />
           </label>
         </div>
         <div className="w-1/2 px-3">
+
+          {/** Téléphone */}
           <label className='block text-gray-700 text-sm font-bold mb-2'>
             Téléphone:
             <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="telephone" type="tel" name="telephone" value={values.telephone} onChange={handleInputChange} />
           </label>
 
+          {/** Mail */}
           <label className='block text-gray-700 text-sm font-bold mb-2'>
             Mail:
             <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="mail" type="email" name="mail" value={values.mail} onChange={handleInputChange} />
           </label>
 
+          {/** Localisation */}
           <label className='block text-gray-700 text-sm font-bold mb-2'>
             Localisation:
             <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="localisation" type="text" name="localisation" value={values.localisation} onChange={handleInputChange} />
           </label>
 
+          {/** Website */}
           <label className='block text-gray-700 text-sm font-bold mb-2'>
             Website (www...):
             <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="website" type="website" name="localisation" value={values.website} onChange={handleInputChange} />
           </label>
 
+          {/** Bannière */}
           <label className='block text-gray-700 text-sm font-bold mb-2'>
             Bannière footer (https://...):
             <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="footer" type="text" name="footer" value={values.footer} onChange={handleInputChange} />
@@ -205,14 +217,22 @@ export default function Home() {
         </div>
       </form>
       <h3 className="text-2xl font-bold mb-10 mt-10">#2 Copier le code adapté</h3>
+
+      {/** Apple mail */}
       <h4 className="text-xl font-bold mb-10">Apple mail</h4>
+
+      {/** Apple mail preview */}
       <div
         dangerouslySetInnerHTML={{ __html: htmlString }}
         className="preview"
       ></div>
+
+      {/** Apple mail copy */}
       <button onClick={() => copyToClipboard(htmlString)} className=" bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded mt-2 mb-10">
         Copier le code source Apple mail
       </button>
+
+      {/** Apple mail video */}
       <YouTube videoId="fyJgH3lkQFA" opts={{
         height: '390',
         width: '640',
@@ -222,14 +242,22 @@ export default function Home() {
         },
       }} />
 
+
+      {/** Gmail */}
       <h4 className="text-xl font-bold mb-10 mt-20">Gmail</h4>
+
+      {/** Gmail preview */}
       <div
         dangerouslySetInnerHTML={{ __html: htmlGoogleString }}
         className="preview"
       ></div>
+
+      {/** Gmail copy */}
       <button onClick={() => copyToClipboard(htmlGoogleString)} className=" bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded mt-2 mb-10">
         Copier le code source Gmail
       </button>
+
+      {/** Gmail video */}
       <YouTube videoId="bp249oLlY3E" opts={{
         height: '390',
         width: '640',
